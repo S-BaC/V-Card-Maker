@@ -7,14 +7,13 @@ $(document).ready (async()=>{
         .catch(err => console.error(err));
 
     buildCtrlPanel ();
+    showLocalStorage();
     listeners();
     $("#downloadBtn").click();
 
 
     let element = $(".main");
     $("#downloadBtn").on('click', function(){
-        // html2canvas( element, { logging: true, letterRendering: 1} ).then(canvas => {let imageData = canvas.toDataURL("image/jpg");
-        // $("#downloadBtn").attr("download", "image.jpg").attr("href", imageData); })
       html2canvas(element, {
         letterRendering: 1,
         allowTaint:true,
@@ -43,6 +42,39 @@ function buildCtrlPanel () {
     }
 }
 
+function showLocalStorage () {
+    let storedData = localStorage.getItem('ContactCardData');
+    if(storedData){
+        storedData = JSON.parse(storedData);
+        for(data in storedData){
+            $(`#${data}`).val(storedData[data]);
+        }
+
+        // Cannot load image this way, yet.
+        // if(localStorage.getItem('ContactCardImg')){
+        //     let storedImg = JSON.parse(localStorage.getItem('ContactCardImg'));
+        //     console.log(storedImg);
+        //     document.querySelector('.profile > img').src = URL.createObjectURL(storedImg);  
+        // }
+        console.log('added');
+    } else {
+        addToLocalStorage();
+    }
+}
+
+function addToLocalStorage () {
+    let dataObj = {
+            name: $('#name').val(),
+            title: $('#title').val(),
+            address: $('#address').val(),
+            contactPhone: $('#contactPhone').val(),
+            contactEmail: $('#contactEmail').val(),
+            contactLinkedIn: $('#contactLinkedIn').val(),
+            contactSocial: $('#contactSocial').val()
+        }
+    localStorage.setItem('ContactCardData', JSON.stringify(dataObj));
+}
+
 function listeners(){
     $('.colors > button').click(e=>{
         let color = e.target.id.split('-')[1];
@@ -56,5 +88,10 @@ function listeners(){
     )
     $('#profileImgInput').change(() => {
         const imgFile = document.querySelector('#profileImgInput').files;
+        localStorage.setItem('ContactCardImg', JSON.stringify(imgFile[0]));
         document.querySelector('.profile > img').src = URL.createObjectURL(imgFile[0]);
-    })}
+    })
+    $('input[type=text]').blur(function(){
+        addToLocalStorage();
+    })
+}

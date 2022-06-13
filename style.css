@@ -72,6 +72,7 @@ body{
     border-radius: 10px;
     background-color: var(--primaryColor);
     border:none;   
+    color:var(--textColor);
 
 }
 .main input::placeholder{
