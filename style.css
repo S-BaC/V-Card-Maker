@@ -1,14 +1,17 @@
 :root{
-    --themeColor1: skyblue;
-    --themeColor2: yellowgreen;
-    --themeColor3: crimson;
+    --anotherProp: yellow;
+    --bgColor: #EDFFEC;
+    --primaryColor: skyblue;
+    --accentColor: #fff;
+    --textColor: #5A5766;
+    --shadeColor: #48435C;
 }
 
 body{
     padding: 0;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--themeColor2);
+    background-color: var(--bgColor);
 
     display: flex;
     align-items: center;
@@ -16,63 +19,108 @@ body{
     flex-wrap: wrap;
 }
 
-.mainStyle01{
-    --primaryColor: #eee;
-    --secondaryColor: #333;
-    --accentColor: orange;
-    --fontSet: Arial, Helvetica, sans-serif;
 
-    --imgH: 100px;
-    --imgW: 200px;
-    --imgR: 0;
-
+.main{
+    flex: 0 1 auto;
     background-color: var(--primaryColor);
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap:10px;
+    padding:20px;
+    box-shadow: 0 0 2px var(--shadeColor);
+
+    --fontSet: Arial, Helvetica, sans-serif;
+    --contactFlex: column;
+    --contactWidth:100%;
+
+    --imgW: 100%;
+    --imgR: 0;
     
     min-width: 100px;
     max-width: 200px;
 
     border-radius: 10px;
-    box-shadow: 0 0 10px #333;
-    padding:20px;
 }
-.main{
-    flex: 0 1 auto;
+
+/* .mainStyle02{
+
+    --fontSet: monospace;
+    --contactFlex: column;
+    --contactWidth:100%;
+
+    --imgW: 100%;
+    --imgR: 0;
+
+
+    
+    min-width: 150px;
+    max-width: 250px;
+
+    border:3px solid var(--textColor);
 }
+
+.mainStyle03{
+
+    --fontSet: cursive;
+    --contactFlex: row;
+    --contactWidth:48%;
+
+    --imgW: 30%;
+    --imgR: 10px;
+
+    min-width: 350px;
+    max-width: 420px;
+
+    border:3px double var(--textColor);
+} */
+
+.header{
+    display: flex;
+    flex-direction: var(--contactFlex);
+    gap:20px;
+    align-items: center;
+}
+
 .main img{
-    height: var(--imgH);
-    /* width: var(--imgW); */
+    width:var(--imgW);
     border-radius: var(--imgR);
-    border: 3px solid var(--secondaryColor);
+    cursor:pointer;
 }
 .main input{
     height:30px;
     width:100%;
     border-radius: 10px;
     background-color: var(--primaryColor);
-    border:none;    text-overflow: ellipsis;
+    border:none;   
+
 }
 .main input::placeholder{
     font-family: var(--fontSet);
-    color:var(--secondaryColor);
+    color:var(--textColor);
+    width:100%;
 }
 .contactWrapper{
     display: flex;
     align-items: center;
+    width: var(--contactWidth);
 }
-.contactWrapper input{
-    text-align: left;
+
+.contact{
+    display:flex;
+    flex-direction: var(--contactFlex);
+   align-items: center;
+   padding:0 10px;
+   width:100%;
+   flex-wrap: wrap;
+   gap:5px;
 }
-.contactWrapper input::placeholder{
-    text-align: left;
-}
+
+
 .main svg{
     width:20px;
     padding-right:10px;
+    color:var(--accentColor);
 }
 
 #name{
@@ -81,6 +129,7 @@ body{
     text-transform: uppercase;
     text-overflow: wrap;
     color:var(--accentColor);
+    margin-bottom:5px;
 }
 #name::placeholder{
     color:var(--accentColor);
@@ -91,45 +140,47 @@ body{
     font-weight: 300;
 }
 
-#address{
-
-}
-
-
-.contact button{
-    background-color: var(--secondaryColor);
-    color:var(--primaryColor);
-    border:none;
-}
-
-.contactStyle01{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   padding:0 10px;
-   gap:5px;
-}
-
-
-
-.panelTheme01{
-
-}
 
 .ctrlPanel{
-    width:minmax(300px, 500px);
-    box-shadow: 0 0 10px #333;
     padding:10px;
     border-radius: 10px;
-    background-color: var(--themeColor3);
+    display: flex;
+
+}
+
+.colors{
+    display: grid;
+    grid-template-columns:repeat(2, auto);
+}
+
+.styles, .save{
+    display: flex;
+    flex-direction: column;
 }
 
 .ctrlPanel button {
-    border-radius: 10px;
+    border-radius: 5px;
     margin:5px 10px;
     padding:5px 10px;
     border:none;
-    background-color: var(--themeColor1);
-    color:var(--themeColor3);
+    background-color: #eee;
+    color:#111;
     cursor: pointer;
+    transition: 0.5s;
 }
+.ctrlPanel button:hover{
+    transform:scale(1.2);
+    box-shadow: 0 0 5px var(--shadeColor);
+}
+
+.colors button, .save button{
+    background-color: var(--bgColor);
+    color: var(--shadeColor);
+    font-weight: 600;
+}
+
+.styles button{
+    background-color: var(--shadeColor);
+    color: var(--bgColor);
+}
+

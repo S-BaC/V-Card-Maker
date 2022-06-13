@@ -1,0 +1,74 @@
+{
+    "colors": {
+        "light":{
+            "--bgColor": "#EDFFEC",
+            "--primaryColor": "skyblue",
+            "--accentColor": "#151256",
+            "--textColor": "#5A5766",
+            "--shadeColor": "#48435C"
+        },
+        "dark":{
+            "--bgColor": "#595A4A",
+            "--primaryColor": "#111",
+            "--accentColor": "#fff",
+            "--textColor": "#ccc",
+            "--shadeColor": "#eee" 
+        },
+        "yellorange":{
+            "--bgColor": "#FCF6B1",
+            "--primaryColor": "#F7B32B",
+            "--accentColor": "#F72C25",
+            "--textColor": "#333",
+            "--shadeColor": "#555"
+        },
+        "greens":{
+            "--bgColor": "#058C42",
+            "--primaryColor": "#16DB65",
+            "--accentColor": "#020202",
+            "--textColor": "#0D2818",
+            "--shadeColor": "#eee"
+        },
+        "pink":{
+            "--bgColor": "#FFC49B",
+            "--primaryColor": "#FF715B",
+            "--accentColor": "#FFFFFF",
+            "--textColor": "#eee",
+            "--shadeColor": "#523F38"
+        }
+    },
+    "styles":{
+        "SmoothVer" : {
+            "--fontSet": "Arial, Helvetica, sans-serif",
+            "--contactFlex": "column",
+            "--contactWidth": "100%",
+            "--imgW": "100%",
+            "--imgR": "0",
+            "min-width":"100px",
+            "max-width":"200px",
+            "border-radius":"10px",
+            "border":"none"
+        },
+        "StiffVer" : {
+            "--fontSet": "monospace",
+            "--contactFlex": "column",
+            "--contactWidth": "100%",
+            "--imgW": "100%",
+            "--imgR": "0",
+            "min-width":"150px",
+            "max-width":"250px",
+            "border-radius":"0",
+            "border":"3px solid var(--textColor)"
+        },
+        "StiffHor" : {
+            "--fontSet": "cursive",
+            "--contactFlex": "row",
+            "--contactWidth": "48%",
+            "--imgW": "30%",
+            "--imgR": "10px",
+            "min-width":"350px",
+            "max-width":"420px",
+            "border-radius":"0",
+            "border":"3px double var(--textColor)"
+        }
+    }
+}

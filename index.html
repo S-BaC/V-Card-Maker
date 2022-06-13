@@ -3,15 +3,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web V Card</title>
+    <title>Contact Card Builder</title>
     <link rel="stylesheet" href="style.css">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./app.js" defer></script>
 </head>
 <body>
-    <div class="main mainStyle01">
-        <img src="https://i.kym-cdn.com/entries/icons/original/000/026/152/gigachad.jpg" alt="Profile Image" class="profile"/>
-        <input type="text" id="name" placeholder="Morgan">
-        <input type="text" id="title" placeholder="Front End Dev">
-        <div class="contact contactStyle01">
+    <div class="main mainStyle">
+        <div class="header">
+            <img src="https://i.pinimg.com/originals/89/02/49/890249b531365a52b5a285f806c7b8d5.png" alt="Profile Image" class="profile"/>
+            <div>
+                <input type="text" id="name" placeholder="Morgan">
+                <input type="text" id="title" placeholder="Front End Dev">
+            </div>
+        </div>
+        <div class="contact">
             <div class="contactWrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -34,30 +40,22 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                 </svg>
-                <input type="text" id="contactLinkedIn" placeholder="https://www.linkedin.com/in/morgan18/"/>
+                <input type="text" id="contactLinkedIn" placeholder="linkedin.com/in/morgan18/"/>
             </div>
             <div class="contactWrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
-                <input type="text" id="contactSocial" placeholder="https://www.facebook.com/morgan/"/>
+                <input type="text" id="contactSocial" placeholder="facebook.com/morgan/"/>
             </div>
             <!-- <button id="contactAddderBtn"> Add </button> -->
         </div>
     </div>
-    <div class="ctrlPanel panelTheme01">
-        <div class="themes">
-            <!-- Placeholder, json data to be inserted. -->
-            <button id="themeDay">Day</button>
-            <button id="themeNight">Night</button>
-        </div>
-
-        <div class="styles">
-            <!-- Placeholder, json data to be inserted. -->
-            <button id="stylesHor"> Horizontal </button>
-            <button id="stylesVer"> Vertical </button>
-        </div>
-
+    <div class="ctrlPanel">
+        <div class="colors"></div>
+        <hr>
+        <div class="styles"></div>
+        <hr>
         <div class="save">
             <button id="saveDownload"> Download </button>
             <button id="saveQR"> Create QR Code </button>
