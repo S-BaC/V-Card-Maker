@@ -63,7 +63,7 @@
             "--fontSet": "cursive",
             "--contactFlex": "row",
             "--contactWidth": "48%",
-            "--imgW": "30%",
+            "--imgW": "100%",
             "--imgR": "10px",
             "min-width":"350px",
             "max-width":"420px",

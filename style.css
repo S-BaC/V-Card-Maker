@@ -8,15 +8,17 @@
 }
 
 body{
-    padding: 0;
+    padding: 3vmin;
     margin: 0;
+    margin-left:50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bgColor);
 
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
+    gap:3vmin;
 }
 
 
@@ -33,7 +35,6 @@ body{
     --fontSet: Arial, Helvetica, sans-serif;
     --contactFlex: column;
     --contactWidth:100%;
-
     --imgW: 100%;
     --imgR: 0;
     
@@ -43,49 +44,27 @@ body{
     border-radius: 10px;
 }
 
-/* .mainStyle02{
-
-    --fontSet: monospace;
-    --contactFlex: column;
-    --contactWidth:100%;
-
-    --imgW: 100%;
-    --imgR: 0;
-
-
-    
-    min-width: 150px;
-    max-width: 250px;
-
-    border:3px solid var(--textColor);
-}
-
-.mainStyle03{
-
-    --fontSet: cursive;
-    --contactFlex: row;
-    --contactWidth:48%;
-
-    --imgW: 30%;
-    --imgR: 10px;
-
-    min-width: 350px;
-    max-width: 420px;
-
-    border:3px double var(--textColor);
-} */
-
 .header{
     display: flex;
     flex-direction: var(--contactFlex);
     gap:20px;
     align-items: center;
 }
-
-.main img{
+.profile{
+    position: relative;
+}
+.profile img{
     width:var(--imgW);
-    border-radius: var(--imgR);
-    cursor:pointer;
+    position: relative;
+    cursor: pointer;
+}
+.profile input{
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    height: var(--imgW) !important;
+    width: var(--imgW) !important;
 }
 .main input{
     height:30px;
@@ -110,7 +89,7 @@ body{
     display:flex;
     flex-direction: var(--contactFlex);
    align-items: center;
-   padding:0 10px;
+   padding:0 0px;
    width:100%;
    flex-wrap: wrap;
    gap:5px;
@@ -131,6 +110,7 @@ body{
     color:var(--accentColor);
     margin-bottom:5px;
 }
+
 #name::placeholder{
     color:var(--accentColor);
 }
@@ -158,7 +138,7 @@ body{
     flex-direction: column;
 }
 
-.ctrlPanel button {
+.ctrlPanel button, #downloadBtn{
     border-radius: 5px;
     margin:5px 10px;
     padding:5px 10px;
@@ -168,15 +148,22 @@ body{
     cursor: pointer;
     transition: 0.5s;
 }
-.ctrlPanel button:hover{
+.ctrlPanel button:hover, #downloadBtn:hover{
     transform:scale(1.2);
     box-shadow: 0 0 5px var(--shadeColor);
 }
 
-.colors button, .save button{
+.colors button{
     background-color: var(--bgColor);
     color: var(--shadeColor);
     font-weight: 600;
+}
+#downloadBtn{
+    background-color: transparent;
+}
+#downloadBtn svg{
+    width:30px;
+    color: var(--shadeColor);
 }
 
 .styles button{
@@ -184,3 +171,31 @@ body{
     color: var(--bgColor);
 }
 
+.mainWrapper{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    align-items: center;
+}
+nav{
+    position: fixed;
+    left:0;
+    top:0;
+    width:50px;
+    height: 100%;
+    background-color: var(--shadeColor);
+    box-shadow: 0 0 3px var(--textColor);
+}
+#infoBtn{
+    color: var(--primaryColor);
+    width:30px;
+    margin: auto;
+    position: absolute;
+    bottom:10px; 
+    left:10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+#infoBtn:hover{
+    transform:scale(1.2);
+}

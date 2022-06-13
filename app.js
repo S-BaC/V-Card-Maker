@@ -5,8 +5,27 @@ $(document).ready (async()=>{
         .then(res => res.json())
         .then(data=> themeData = data)
         .catch(err => console.error(err));
+
     buildCtrlPanel ();
     listeners();
+    $("#downloadBtn").click();
+
+
+    let element = $(".main");
+    $("#downloadBtn").on('click', function(){
+        // html2canvas( element, { logging: true, letterRendering: 1} ).then(canvas => {let imageData = canvas.toDataURL("image/jpg");
+        // $("#downloadBtn").attr("download", "image.jpg").attr("href", imageData); })
+      html2canvas(element, {
+        letterRendering: 1,
+        allowTaint:true,
+        useCORS: false,
+        onrendered: function(canvas) {
+          var imageData = canvas.toDataURL("image/jpg");
+          $("#downloadBtn").attr("download", "image.jpg").attr("href", imageData);
+        }
+      });
+
+    });
 })
 
 function buildCtrlPanel () {
@@ -35,4 +54,7 @@ function listeners(){
         $('.main').css(themeData.styles[style]);
         }
     )
-}
+    $('#profileImgInput').change(() => {
+        const imgFile = document.querySelector('#profileImgInput').files;
+        document.querySelector('.profile > img').src = URL.createObjectURL(imgFile[0]);
+    })}
